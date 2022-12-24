@@ -6,6 +6,7 @@
   --dark: #333333;
   --black: #000000;
   --white: #fff;
+  --national:#8CA4A8;
 }
 
 /* CSS RESET */
@@ -167,6 +168,7 @@ ul{
   font-weight: bolder;
   font-size: 4vh;
   padding: 10px;
+  color: var(--national);
     
 }
 
