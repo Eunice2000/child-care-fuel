@@ -120,13 +120,13 @@
               <span class="First-write--sub">care fuel</span>
             </h1>
 
-            <button class="btn1">Get Started</button>
+            <a href="#call"><button class="btn1">Get Started</button></a>
           </div>
         </div>
       </div>
 
       <!-- section 2 -->
-      <section class="section2">
+      <section class="section2" id="section2">
         <div class="image-text-section">
           <p class="section2-text">
             We Are a Non-Profit And NGO Organization Provide Help To Africa
@@ -143,6 +143,33 @@
           </p>
         </div>
       </section>
+
+        <!-- GALLERY SECTION -->
+      <div id="carouselExampleControls" class="carousel slide m-10"  data-bs-ride="carousel" style="max-width: 95% !important; margin: auto;">
+        <h3 style="margin-top: 20px; text-align: center;">OUR GALLERY</h3>
+        <div class="carousel-inner" id="gallery">
+          <!-- image 1 -->
+          <div class="carousel-item active">
+            <img src="../assets/children-1149671__340.jpg" class="d-block w-100" alt="...">
+          </div>
+          <!-- image 2 -->
+          <div class="carousel-item">
+            <img src="../assets/children-1869265__340.jpg" class="d-block w-100" alt="...">
+          </div>
+          <!-- image 3 -->
+          <div class="carousel-item">
+            <img src="../assets/my logo.JPG" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
       <!-- SECTION 3 -->
       <section class="section3">
@@ -170,7 +197,7 @@
 
       <!-- SECTION 5 -->
       <section class="container text-center">
-        <div class="row">
+        <div class="row" id="whatwedo">
           <div class="col-6">
             <h3 id="national">Statistics</h3>
             <p class="grid-texts statistics">
@@ -318,16 +345,26 @@
         </div>
       </div>
 
+      
+
     </section>
+
+    <div class="card mb-3" >
+      <div class="row g-0" id="call">
+        <p>For more enquiries, please call</p>
+        <p>07014592427</p>
+      </div>
+    </div>
+
 
     <footer class="bd-footer py-4 py-md-5  " style="background-color: #565656; color: white;">
       <div class="container py-4 py-md-5 px-4 px-md-3">
         <div class="row">
           <!-- First column -->
           <div class="col-6 col-lg-3 mb-3">
-            <p class="foot-head">About us</p>
+            <a href="#section2"><p class="foot-he1ad">About us</p></a>
             <ul class="list-unstyled">
-              <li class="mb-2"><a href="/docs/5.2/getting-started/">What we do</a></li>
+              <li class="mb-2"><a href="#whatwedo">What we do</a></li>
               <li class="mb-2"><a href="/docs/5.2/examples/starter-template/">About</a></li>
               <li class="mb-2"><a href="/docs/5.2/getting-started/webpack/">Our Blog</a></li>       
             </ul>
@@ -335,10 +372,9 @@
           <div class="col-6 col-lg-3 mb-3">
             <p class="foot-head">Quick Links</p>
             <ul class="list-unstyled">
-              <li class="mb-2"><a href="../fire.html">Our gallery</a></li>
-              <li class="mb-2"><a href="../emergency.html">Event</a></li>
-              <li class="mb-2"><a href="../health.html">Our services</a></li>
-              <li class="mb-2"><a href="../security.html">Contact us</a></li>
+              <li class="mb-2"><a href="#gallery">Our gallery</a></li>
+              <li class="mb-2"><a href="#whatwedo">Our services</a></li>
+              <li class="mb-2"><a href="#call">Contact us</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-3 mb-3">
@@ -356,7 +392,6 @@
               <li class="mb-2"><a href="https://github.com/twbs/bootstrap/issues">Twitter</a></li>
               <li class="mb-2"><a href="https://github.com/twbs/bootstrap/discussions">Facebook</a></li>
               <li class="mb-2"><a href="https://github.com/sponsors/twbs">Whatsapp</a></li>
-              <li class="mb-2"><a href="https://opencollective.com/bootstrap">Slack</a></li>
             </ul>
           </div>
         </div>
