@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>child care</title>
+
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="">
+          <div>
+            <a href="./index.html">
+              <img src="../assets/my logo.JPG" class="logo" />
+            </a>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >About us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">Sexual violence</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Consulting and training
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <li>
+                    <a class="dropdown-item" href="./fire.html?q=fire"
+                      >How to help</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./health.html?q=health"
+                      >Health Emergency</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./security.html?=security"
+                      >Security Service</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./emergency.html?=ambulance"
+                      >Ambulancce Service</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./mental.html?=mental"
+                      >Mental Health</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End of the Nav Bar -->
+    </header>
+    <form class="form" id="form">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Example label</label>
+        <input
+          type="text"
+          class="form-control w-75"
+          id="taskTitle"
+          placeholder="Example input"
+        />
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Another label</label>
+        <input
+          type="text"
+          class="form-control"
+          id="taskTitle2"
+          placeholder="Another input"
+        />
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">your message</label>
+        <textarea class="text-area" id="taskTitle3"></textarea>
+      </div>
+
+      <button class="btns" type="submit">submit message</button>
+    </form>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyD1tpHQs8bki1ci5aU5QCaP60mgBJRMHJY",
+        authDomain: "child-b7b9e.firebaseapp.com",
+        projectId: "child-b7b9e",
+        storageBucket: "child-b7b9e.appspot.com",
+        messagingSenderId: "1008830960777",
+        appId: "1:1008830960777:web:182035d49b9a5159d12258",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var db = firebase.firestore();
+      var form = document.getElementById("form");
+      const taskInputDOM = document.getElementById("taskTitle");
+      const taskInputDOM2 = document.getElementById("taskTitle2");
+      const taskInputDOM3 = document.getElementById("taskTitle3");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let task = {
+          name: taskInputDOM.value,
+          name2: taskInputDOM2.value,
+          name3: taskInputDOM3.value,
+        };
+
+        db.collection("tasks")
+          .add(task)
+          .then((ref) => {
+            task.id = ref.id;
+            taskInputDOM.value = "";
+            taskInputDOM2.value = "";
+            taskInputDOM3.value = "";
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+      });
+    </script>
+  </body>
+</html>
